@@ -97,9 +97,25 @@ public class jogoDaVelha {
         if(fim == false){
             selecionarJogada(matriz, player1, p1, 5);
 
-            printMatriz(matriz);
-            System.out.println("-----------------------------------");  
-            System.out.println("O jogo empatou!");
+            //checa se o jogador venceu o jogo
+            if((matriz[0][0] == p1 && matriz[0][1] == p1 && matriz[0][2] == p1)
+            || (matriz[0][0] == p1 && matriz[1][1] == p1 && matriz[2][2] == p1)
+            || (matriz[0][0] == p1 && matriz[1][0] == p1 && matriz[2][0] == p1)
+            || (matriz[0][0] == p1 && matriz[1][0] == p1 && matriz[2][0] == p1)
+            || (matriz[0][1] == p1 && matriz[1][1] == p1 && matriz[2][1] == p1)
+            || (matriz[0][2] == p1 && matriz[1][2] == p1 && matriz[2][2] == p1)
+            || (matriz[1][0] == p1 && matriz[1][1] == p1 && matriz[1][2] == p1)
+            || (matriz[2][0] == p1 && matriz[2][1] == p1 && matriz[2][2] == p1)
+            || (matriz[2][0] == p1 && matriz[1][1] == p1 && matriz[0][2] == p1)
+            ){
+                System.out.printf("O jogador %s venceu!\n", player1);
+                printMatriz(matriz);
+                fim = true;
+            }else {
+                printMatriz(matriz);
+                System.out.println("-----------------------------------");  
+                System.out.println("O jogo empatou!");
+            }
         }
 
         scan.close();
